@@ -2,6 +2,8 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Random;
 
 import javax.swing.ButtonGroup;
@@ -9,15 +11,20 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 import com.toedter.calendar.JDateChooser;
 
-public class Signup extends JFrame{
+public class Signup extends JFrame implements ActionListener{
 
     Image _imageIcon = new ImageIcon("lib/icon.png").getImage();
+    long _randomNumber;
     JTextField _fullNameTextField, _motherMaidenNameTextField, _emailAddressTextField, _addressTextField, _cityTextField, _stateTextField, _postalCodeTextField;
+    JDateChooser _dobChooser;
+    JRadioButton _male, _female, _single, _married, _others;
+    JButton _saveAndNext;
 
     public Signup() {
         setIconImage(_imageIcon);
@@ -25,7 +32,7 @@ public class Signup extends JFrame{
         setLayout(null);
 
         Random _randomUtil = new Random();
-        long _randomNumber = Math.abs((_randomUtil.nextLong() % 9000L) + 1000L);
+        _randomNumber = Math.abs((_randomUtil.nextLong() % 9000L) + 1000L);
 
         JLabel _formPage = new JLabel("Application Form NO: " + _randomNumber);
         _formPage.setBounds(200, 40, 500, 40);
@@ -64,7 +71,7 @@ public class Signup extends JFrame{
         _dob.setFont(new Font("Century Gothic", Font.BOLD, 24));
         add(_dob);
 
-        JDateChooser _dobChooser = new JDateChooser();
+        _dobChooser = new JDateChooser();
         _dobChooser.setBounds(370, 250, 430, 40);
         _dobChooser.setFont(new Font("Century Gothic", Font.BOLD, 20));
         _dobChooser.setForeground(new Color(105, 105, 105));
@@ -75,12 +82,12 @@ public class Signup extends JFrame{
         _gender.setFont(new Font("Century Gothic", Font.BOLD, 24));
         add(_gender);
 
-        JRadioButton _male = new JRadioButton("Male");
+        _male = new JRadioButton("Male");
         _male.setBounds(370, 300, 210, 40);
         _male.setFont(new Font("Century Gothic", Font.BOLD, 24));
         add(_male);
 
-        JRadioButton _female = new JRadioButton("Female");
+        _female = new JRadioButton("Female");
         _female.setBounds(595, 300, 210, 40);
         _female.setFont(new Font("Century Gothic", Font.BOLD, 24));
         add(_female);
@@ -105,17 +112,17 @@ public class Signup extends JFrame{
         _maritalStatus.setFont(new Font("Century Gothic", Font.BOLD, 24));
         add(_maritalStatus);
 
-        JRadioButton _single = new JRadioButton("Single");
+        _single = new JRadioButton("Single");
         _single.setBounds(370, 400, 100, 40);
         _single.setFont(new Font("Century Gothic", Font.BOLD, 24));
         add(_single);
 
-        JRadioButton _married = new JRadioButton("Married");
+        _married = new JRadioButton("Married");
         _married.setBounds(533, 400, 150, 40);
         _married.setFont(new Font("Century Gothic", Font.BOLD, 24));
         add(_married);
 
-        JRadioButton _others = new JRadioButton("Others");
+        _others = new JRadioButton("Others");
         _others.setBounds(695, 400, 100, 40);
         _others.setFont(new Font("Century Gothic", Font.BOLD, 24));
         add(_others);
@@ -169,7 +176,7 @@ public class Signup extends JFrame{
         _postalCodeTextField.setFont(new Font("Century Gothic", Font.BOLD, 20));
         add(_postalCodeTextField);
 
-        JButton _saveAndNext = new JButton("Save and Next");
+        _saveAndNext = new JButton("Save and Next");
         _saveAndNext.setBackground(Color.BLACK);
         _saveAndNext.setForeground(Color.WHITE);
         _saveAndNext.setFont(new Font("Century Gothic", Font.BOLD, 32));
@@ -177,11 +184,66 @@ public class Signup extends JFrame{
         _saveAndNext.setBorder(null);
         _saveAndNext.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         _saveAndNext.setFocusPainted(false);
+        _saveAndNext.addActionListener(this);
         add(_saveAndNext);
 
         setSize(850, 800);
         setLocation(350, 10);
         setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent _actionEvent) {
+        String _formNumber = "" + _randomNumber;
+        String _fullName = _fullNameTextField.getText();
+        String _motherMaidenName = _motherMaidenNameTextField.getText();
+        String _emailAddress = _emailAddressTextField.getText();
+        String _address = _addressTextField.getText();
+        String _city = _cityTextField.getText();
+        String _state = _stateTextField.getText();
+        String _postalCode = _postalCodeTextField.getText();
+        String _dob = ((JTextField) _dobChooser.getDateEditor().getUiComponent()).getText();
+        String _gender = null;
+        if(_male.isSelected()){
+            _gender = "Male";
+        } else if (_female.isSelected()){
+            _gender = "Female";
+        } else {
+            _gender = null;
+        }
+        String _maritalStatus = null;
+        if(_single.isSelected()){
+            _maritalStatus = "Single";
+        } else if (_married.isSelected()){
+            _maritalStatus = "Married";
+        } else if (_others.isSelected()) {
+            _maritalStatus = "Other";
+        } else {
+            _maritalStatus = null;
+        }
+
+        try {
+            if (_fullName.equals("")) {
+                JOptionPane.showMessageDialog(null, "Enter your full name");               
+            } else if(_motherMaidenName.equals("")){
+                JOptionPane.showMessageDialog(null, "Enter your Mother's Maiden name");
+            } else if(_emailAddress.equals("")){
+                JOptionPane.showMessageDialog(null, "Enter a unique email");
+            } else if(_dob.equals("")){
+                JOptionPane.showMessageDialog(null, "You must be born to continue");
+            } else if(_gender.equals("")){
+                JOptionPane.showMessageDialog(null, "Binary gender is required");
+            } else if(_maritalStatus.equals("")){
+                JOptionPane.showMessageDialog(null, "You should at least tick Single");
+            } else {
+                System.out.println(_dob);
+                Connector _connector = new Connector();
+                String _query = "INSERT INTO SIGNUP VALUES('"+_formNumber+"', '"+_fullName+"', '"+_motherMaidenName+"', '"+_emailAddress+"', '"+_address+"', '"+_city+"', '"+_state+"', '"+_postalCode+"', '"+_dob+"', '"+_gender+"', '"+_maritalStatus+"')";
+                _connector._stmt.executeUpdate(_query);
+            }
+        } catch (Exception _error) {
+            JOptionPane.showMessageDialog(null, "An Error has Occurred", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     public static void main(String[] args){
