@@ -32,7 +32,7 @@ public class Login extends JFrame implements ActionListener {
     
     public Login() {
         setIconImage(_imageIcon);
-        setTitle("Automated Bank System");
+        setTitle("Automated Bank System - Welcome");
         setLayout(null);
         
         JLabel _label = new JLabel(__imageIcon);
