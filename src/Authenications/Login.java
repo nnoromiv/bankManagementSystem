@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -13,6 +14,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.JOptionPane;
+
+
+import Connector.Connector;
+import Transactions.Transaction;
 
 public class Login extends JFrame implements ActionListener {
 
@@ -118,7 +124,23 @@ public class Login extends JFrame implements ActionListener {
             setVisible(false);
             new Signup().setVisible(true);            
         } else if (_actionEvent.getSource() == _loginButton){
+            Connector _connector = new Connector();
+            String _cardNumber = _cardNumberTextField.getText();
+            char[] _pinCharacters = _pinTextField.getPassword();
+            String _pin = new String(_pinCharacters);
 
+            String _query = "SELECT * FROM LOGIN WHERE _cardNumber = '"+_cardNumber+"' AND _pin = '"+_pin+"'";
+            try {
+                ResultSet _result = _connector._stmt.executeQuery(_query);
+                if(_result.next()){
+                    setVisible(false);
+                    new Transaction(_pin).setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Incorrect Card Number or Pin", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            } catch (Exception _error) {
+                JOptionPane.showMessageDialog(null, "An Error has Occurred", "Error", JOptionPane.ERROR_MESSAGE);
+            }
         } else {
             throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
         }
