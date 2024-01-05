@@ -28,7 +28,7 @@ public class Signup extends JFrame implements ActionListener{
 
     public Signup() {
         setIconImage(_imageIcon);
-        setTitle("Automated Bank System - Sign Up");
+        setTitle("Automated Bank System - Sign Up - Personal Details");
         setLayout(null);
 
         Random _randomUtil = new Random();
@@ -236,10 +236,12 @@ public class Signup extends JFrame implements ActionListener{
             } else if(_maritalStatus.equals("")){
                 JOptionPane.showMessageDialog(null, "You should at least tick Single");
             } else {
-                System.out.println(_dob);
                 Connector _connector = new Connector();
                 String _query = "INSERT INTO SIGNUP VALUES('"+_formNumber+"', '"+_fullName+"', '"+_motherMaidenName+"', '"+_emailAddress+"', '"+_address+"', '"+_city+"', '"+_state+"', '"+_postalCode+"', '"+_dob+"', '"+_gender+"', '"+_maritalStatus+"')";
                 _connector._stmt.executeUpdate(_query);
+
+                setVisible(false);
+                new AdditionalDetails(_formNumber).setVisible(true);
             }
         } catch (Exception _error) {
             JOptionPane.showMessageDialog(null, "An Error has Occurred", "Error", JOptionPane.ERROR_MESSAGE);
