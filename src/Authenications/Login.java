@@ -1,3 +1,5 @@
+package Authenications;
+
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
@@ -78,9 +80,9 @@ public class Login extends JFrame implements ActionListener {
         add(_loginButton);
 
         _clearButton = new JButton("Clear");
-        _clearButton.setBounds(300, 350, 120, 50);
-        _clearButton.setBackground(Color.BLACK);
-        _clearButton.setForeground(Color.white);
+        _clearButton.setBounds(300, 350, 145, 50);
+        _clearButton.setBackground(Color.RED);
+        _clearButton.setForeground(Color.WHITE);
         _clearButton.setFont(new Font("Century Gothic", Font.BOLD, 24));
         _clearButton.setBorder(null);
         _clearButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -89,7 +91,7 @@ public class Login extends JFrame implements ActionListener {
         add(_clearButton);
 
         _signUpButton = new JButton("Sign Up");
-        _signUpButton.setBounds(480, 350, 120, 50);
+        _signUpButton.setBounds(460, 350, 145, 50);
         _signUpButton.setBackground(Color.BLACK);
         _signUpButton.setForeground(Color.white);
         _signUpButton.setFont(new Font("Century Gothic", Font.BOLD, 24));

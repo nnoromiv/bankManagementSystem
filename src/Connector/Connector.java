@@ -1,3 +1,4 @@
+package Connector;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
@@ -5,7 +6,7 @@ import java.sql.Statement;
 public class Connector {
 
     Connection _connection;
-    Statement _stmt;
+    public Statement _stmt;
     
     public Connector(){
         try {

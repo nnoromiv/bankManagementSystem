@@ -1,3 +1,5 @@
+package Authenications;
+
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
@@ -16,6 +18,8 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 import com.toedter.calendar.JDateChooser;
+
+import Connector.Connector;
 
 public class Signup extends JFrame implements ActionListener{
 
@@ -203,15 +207,15 @@ public class Signup extends JFrame implements ActionListener{
         String _state = _stateTextField.getText();
         String _postalCode = _postalCodeTextField.getText();
         String _dob = ((JTextField) _dobChooser.getDateEditor().getUiComponent()).getText();
-        String _gender = null;
+        String _gender = "";
         if(_male.isSelected()){
             _gender = "Male";
         } else if (_female.isSelected()){
             _gender = "Female";
         } else {
-            _gender = null;
+            _gender = "";
         }
-        String _maritalStatus = null;
+        String _maritalStatus = "";
         if(_single.isSelected()){
             _maritalStatus = "Single";
         } else if (_married.isSelected()){
@@ -219,7 +223,7 @@ public class Signup extends JFrame implements ActionListener{
         } else if (_others.isSelected()) {
             _maritalStatus = "Other";
         } else {
-            _maritalStatus = null;
+            _maritalStatus = "";
         }
 
         try {

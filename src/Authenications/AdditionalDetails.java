@@ -1,3 +1,5 @@
+package Authenications;
+
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
@@ -11,6 +13,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
+import Connector.Connector;
+
 import javax.swing.JComboBox;
 
 
@@ -24,7 +29,7 @@ public class AdditionalDetails extends JFrame implements ActionListener{
     String _occupationValues[] = {"Salaries", "Self-Employed", "Student", "Retired", "Others"};
     JComboBox<String> _religionField, _categoryField, _incomeField, _qualificationField, _occupationField;
     JTextField _panNumberTextField;
-    JButton _saveAndNext;
+    JButton _saveAndNext, _cancel;
     String _formNumber;
 
     public AdditionalDetails(String _formNumber) {
@@ -119,11 +124,22 @@ public class AdditionalDetails extends JFrame implements ActionListener{
         _panNumberTextField.setFont(new Font("Century Gothic", Font.BOLD, 20));
         add(_panNumberTextField);
 
+        _cancel = new JButton("Cancel");
+        _cancel.setBackground(Color.RED);
+        _cancel.setForeground(Color.WHITE);
+        _cancel.setFont(new Font("Century Gothic", Font.BOLD, 32));
+        _cancel.setBounds(70, 680, 300, 50);
+        _cancel.setBorder(null);
+        _cancel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        _cancel.setFocusPainted(false);
+        _cancel.addActionListener(this);
+        add(_cancel);
+
         _saveAndNext = new JButton("Save and Next");
         _saveAndNext.setBackground(Color.BLACK);
         _saveAndNext.setForeground(Color.WHITE);
         _saveAndNext.setFont(new Font("Century Gothic", Font.BOLD, 32));
-        _saveAndNext.setBounds(70, 680, 730, 50);
+        _saveAndNext.setBounds(470, 680, 300, 50);
         _saveAndNext.setBorder(null);
         _saveAndNext.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         _saveAndNext.setFocusPainted(false);
@@ -137,19 +153,32 @@ public class AdditionalDetails extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent _actionEvent) {
-        String _religion = (String) _religionField.getSelectedItem();
-        String _category = (String) _categoryField.getSelectedItem();
-        String _income = (String) _incomeField.getSelectedItem();
-        String _qualification = (String) _qualificationField.getSelectedItem();
-        String _occupation = (String) _occupationField.getSelectedItem();
-        String _panNumber = _panNumberTextField.getText();
+        if(_actionEvent.getSource() == _saveAndNext){
+            String _religion = (String) _religionField.getSelectedItem();
+            String _category = (String) _categoryField.getSelectedItem();
+            String _income = (String) _incomeField.getSelectedItem();
+            String _qualification = (String) _qualificationField.getSelectedItem();
+            String _occupation = (String) _occupationField.getSelectedItem();
+            String _panNumber = _panNumberTextField.getText();
 
-        try {
-            Connector _connector = new Connector();
-            String _query = "INSERT INTO SIGNUP_ADDITIONAL_DETAILS VALUES('"+_formNumber+"', '"+_religion+"', '"+_category+"', '"+_income+"', '"+_qualification+"', '"+_occupation+"', '"+_panNumber+"')";
-            _connector._stmt.executeUpdate(_query);
-        } catch (Exception _error) {
-            JOptionPane.showMessageDialog(null, "An Error has Occurred", "Error", JOptionPane.ERROR_MESSAGE);
+            try {
+                Connector _connector = new Connector();
+                String _query = "INSERT INTO SIGNUP_ADDITIONAL_DETAILS VALUES('"+_formNumber+"', '"+_religion+"', '"+_category+"', '"+_income+"', '"+_qualification+"', '"+_occupation+"', '"+_panNumber+"')";
+                _connector._stmt.executeUpdate(_query);
+
+                setVisible(false);
+                new AccountDetails(_formNumber).setVisible(true);
+            } catch (Exception _error) {
+                JOptionPane.showMessageDialog(null, "An Error has Occurred", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } else if(_actionEvent.getSource() == _cancel) {
+            int _cancelChoice = JOptionPane.showConfirmDialog(null, "Are you sure? This would take you back", "Warning", JOptionPane.YES_NO_OPTION);
+            if(_cancelChoice == JOptionPane.YES_OPTION) {
+                setVisible(false);
+                new Signup().setVisible(true);
+            } else {
+                // DO NOTHING
+            }
         }
     }
 
