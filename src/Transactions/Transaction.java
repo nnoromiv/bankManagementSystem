@@ -16,9 +16,11 @@ public class Transaction extends JFrame implements ActionListener {
 
     ImageIcon _backgroundImage = new ImageIcon(new ImageIcon("lib/atm.jpg").getImage().getScaledInstance(900, 900, Image.SCALE_DEFAULT));
     JButton _deposit, _cashWithdrawal, _fastCash, _miniStatement, _pinChange, _balanceEnquiry, _exit;
+    String _cardNumber;
     String _pin;
     
-    public Transaction(String _pin){
+    public Transaction(String _cardNumber, String _pin){
+        this._cardNumber = _cardNumber;
         this._pin = _pin;
         setLayout(null);
 
@@ -26,11 +28,11 @@ public class Transaction extends JFrame implements ActionListener {
         _atmImage.setBounds(0, 0, 900, 900);
         add(_atmImage);
 
-        JLabel _selectTransaction = new JLabel("Please select a Transaction ");
-        _selectTransaction.setBounds(200, 250, 700, 40);
-        _selectTransaction.setForeground(Color.WHITE);
-        _selectTransaction.setFont(new Font("Century Gothic", Font.BOLD, 20));
-        _atmImage.add(_selectTransaction);
+        JLabel _message = new JLabel("Please select a Transaction ");
+        _message.setBounds(200, 250, 700, 40);
+        _message.setForeground(Color.WHITE);
+        _message.setFont(new Font("Century Gothic", Font.BOLD, 20));
+        _atmImage.add(_message);
 
         _deposit = new JButton("Deposit");
         _deposit.setBackground(Color.WHITE);
@@ -120,10 +122,16 @@ public class Transaction extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent _actionEvent) {
         if(_actionEvent.getSource() == _exit){
             System.exit(0);
+        } else if (_actionEvent.getSource() == _deposit){
+            setVisible(false);
+            new Deposit(_cardNumber, _pin).setVisible(true);
+        } else if (_actionEvent.getSource() == _cashWithdrawal){
+            setVisible(false);
+            new Withdrawal(_cardNumber, _pin).setVisible(true);
         }
     }
 
     public static void main(String args[]) {
-        new Transaction("");
+        new Transaction("", "");
     }
 }

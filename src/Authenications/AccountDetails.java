@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 
 import Connector.Connector;
+import Transactions.Deposit;
 
 import javax.swing.JCheckBox;
 
@@ -248,13 +249,13 @@ public class AccountDetails extends JFrame implements ActionListener{
                 String _query_1 = "INSERT INTO LOGIN VALUES('"+_formNumber+"', '"+_cardNumber+"', '"+_pin+"')";
                 _connector._stmt.executeUpdate(_query);
                 _connector._stmt.executeUpdate(_query_1);
+
+                setVisible(false);
+                new Deposit(_cardNumber, _pin).setVisible(true);
             }
         } catch (Exception _error) {
             JOptionPane.showMessageDialog(null, "An Error has Occurred", "Error", JOptionPane.ERROR_MESSAGE);
-        } finally {
-            setVisible(false);
-            new Login().setVisible(true);
-        }
+        } 
        } else if(_actionEvent.getSource() == _cancel){
             int _cancelChoice = JOptionPane.showConfirmDialog(null, "Are you sure? This would take you back", "Warning", JOptionPane.YES_NO_OPTION);
             if(_cancelChoice == JOptionPane.YES_OPTION) {
