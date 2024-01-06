@@ -4,6 +4,7 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.awt.Color;
 import java.awt.Cursor;
@@ -91,8 +92,25 @@ public class Withdrawal extends JFrame implements ActionListener {
             } else {
                 try {
                     Connector _connector = new Connector();
-                    String _query = "INSERT INTO BANK VALUES('"+_date+"', '"+_amountToWithdraw+"','Withdraw','"+_pin+"','"+_cardNumber+"')";
-                    _connector._stmt.executeUpdate(_query);
+                    String _insertBankQuery = "INSERT INTO BANK VALUES('"+_date+"', '"+_amountToWithdraw+"','Withdraw','"+_pin+"','"+_cardNumber+"')";
+                    String _bankQuery = "SELECT * FROM BANK WHERE _pin = '"+_pin+"' AND _cardNumber = '"+_cardNumber+"'";
+                 
+                    ResultSet _result = _connector._stmt.executeQuery(_bankQuery);
+                    int _balance = 0;
+                    while(_result.next()){
+                        if(_result.getString("_type").equals("Deposit")){
+                            _balance += Integer.parseInt(_result.getString("_amount"));
+                        } else {
+                            _balance -= Integer.parseInt(_result.getString("_amount"));
+                        }
+                    }
+
+                    if(_actionEvent.getSource() != _back && _balance < Integer.parseInt(_amountToWithdraw)){
+                        JOptionPane.showMessageDialog(null, "Insufficient Funds", "Error", JOptionPane.ERROR_MESSAGE);
+                        return;
+                    } else {
+                        _connector._stmt.executeUpdate(_insertBankQuery);
+                    }
 
                     JOptionPane.showMessageDialog(null, "$ " + _amountToWithdraw + " Withdrawn Successfully");
                     setVisible(false);

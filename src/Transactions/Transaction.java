@@ -134,6 +134,9 @@ public class Transaction extends JFrame implements ActionListener {
         } else if (_actionEvent.getSource() == _pinChange){
             setVisible(false);
             new PinChange(_cardNumber, _pin).setVisible(true);
+        }else if (_actionEvent.getSource() == _miniStatement){
+            setVisible(false);
+            new MiniStatement(_cardNumber, _pin).setVisible(true);
         }else if (_actionEvent.getSource() == _balanceEnquiry){
             setVisible(false);
             new BalanceEnquiry(_cardNumber, _pin).setVisible(true);
