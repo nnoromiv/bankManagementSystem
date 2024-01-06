@@ -15,10 +15,7 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JOptionPane;
 
-
-
 import Connector.Connector;
-
 
 import java.util.Date;
 

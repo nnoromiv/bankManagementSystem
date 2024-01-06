@@ -128,6 +128,12 @@ public class Transaction extends JFrame implements ActionListener {
         } else if (_actionEvent.getSource() == _cashWithdrawal){
             setVisible(false);
             new Withdrawal(_cardNumber, _pin).setVisible(true);
+        }else if (_actionEvent.getSource() == _fastCash){
+            setVisible(false);
+            new FastCash(_cardNumber, _pin).setVisible(true);
+        } else if (_actionEvent.getSource() == _pinChange){
+            setVisible(false);
+            new PinChange(_cardNumber, _pin).setVisible(true);
         }
     }
 
