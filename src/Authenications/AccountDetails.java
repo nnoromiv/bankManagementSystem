@@ -32,6 +32,17 @@ public class AccountDetails extends JFrame implements ActionListener{
     Random _randomUtil = new Random();
     String _formNumber;
 
+    
+    /**
+     * The AccountDetails function is used to create the Account Details page of the application form.
+     * 
+     *
+     * @param String _formNumber Set the form number in the jlabel _formpage
+     *
+     * @return An object of the account details class
+     *
+     * @nnoromiv https://www.linkedin.com/in/nnorom
+     */
     public AccountDetails(String _formNumber) {
         this._formNumber = _formNumber;
         setIconImage(_imageIcon);
@@ -198,6 +209,17 @@ public class AccountDetails extends JFrame implements ActionListener{
         setVisible(true);
     }
 
+    
+    /**
+     * The actionPerformed function is the function that handles all of the events that occur when a button is pressed.
+     * 
+     *
+     * @param ActionEvent _actionEvent Determine which button was pressed
+     *
+     * @return Void, so you can't return anything from it
+     *
+     * @nnoromiv https://www.linkedin.com/in/nnorom
+     */
     @Override
     public void actionPerformed(ActionEvent _actionEvent) {
        if(_actionEvent.getSource() == _save) {
@@ -267,6 +289,17 @@ public class AccountDetails extends JFrame implements ActionListener{
        }
     }
 
+    
+    /**
+     * The main function of the program.
+     * 
+     *
+     * @param String[] args Pass command line arguments to the program
+     *
+     * @return Void, so it doesn't return anything
+     *
+     * @nnoromiv https://www.linkedin.com/in/nnorom
+     */
     public static void main(String[] args){
         new AccountDetails("");
     }

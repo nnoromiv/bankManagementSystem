@@ -30,6 +30,18 @@ public class Deposit extends JFrame implements ActionListener {
     String _cardNumber;
     String _pin;
     
+    
+    /**
+     * The Deposit function is used to deposit money into the user's account.
+     * 
+     *
+     * @param String _cardNumber Pass the card number from the previous screen to this one
+     * @param String _pin Pass the pin number to this class
+     *
+     * @return A boolean value
+     *
+     * @nnoromiv https://www.linkedin.com/in/nnorom
+     */
     public Deposit(String _cardNumber, String _pin){
         this._cardNumber = _cardNumber;
         this._pin = _pin;
@@ -81,7 +93,18 @@ public class Deposit extends JFrame implements ActionListener {
         setVisible(true);
     }
 
-     @Override
+    
+    /**
+     * The actionPerformed function is an event handler that handles the events of the buttons in this class.
+     * 
+     *
+     * @param ActionEvent _actionEvent Determine which button was pressed
+     *
+     * @return Void, so you cannot return anything from it
+     *
+     * @nnoromiv https://www.linkedin.com/in/nnorom
+     */
+    @Override
     public void actionPerformed(ActionEvent _actionEvent) {
         if(_actionEvent.getSource() == _back){
             setVisible(false);

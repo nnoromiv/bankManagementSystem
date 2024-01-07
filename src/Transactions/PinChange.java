@@ -25,6 +25,18 @@ public class PinChange extends JFrame implements ActionListener {
     String _cardNumber;
     String _pin;
     
+    
+    /**
+     * The PinChange function is a constructor that creates the GUI for changing the pin of an account.
+     * 
+     *
+     * @param String _cardNumber Get the card number of the user
+     * @param String _pin Get the pin number from the user
+     *
+     * @return A string
+     *
+     * @nnoromiv https://www.linkedin.com/in/nnorom
+     */
     public PinChange(String _cardNumber, String _pin){
         this._cardNumber = _cardNumber;
         this._pin = _pin;
@@ -88,6 +100,18 @@ public class PinChange extends JFrame implements ActionListener {
         setVisible(true);
     }
 
+     
+     /**
+      * The actionPerformed function is the function that handles all of the button clicks in this class.
+      * It checks which button was clicked and then performs an action based on that.
+      * 
+      *
+      * @param ActionEvent _actionEvent Determine which button was pressed
+      *
+      * @return Void, so there is no need to return anything
+      *
+      * @nnoromiv https://www.linkedin.com/in/nnorom
+      */
      @Override
     public void actionPerformed(ActionEvent _actionEvent) {
         if(_actionEvent.getSource() == _back){
@@ -131,6 +155,17 @@ public class PinChange extends JFrame implements ActionListener {
         }
     }
 
+    
+    /**
+     * The main function of the program.
+     * 
+     *
+     * @param String args[] Pass command line arguments to the program
+     *
+     * @return Nothing
+     *
+     * @nnoromiv https://www.linkedin.com/in/nnorom
+     */
     public static void main(String args[]) {
         new PinChange("", "");
     }

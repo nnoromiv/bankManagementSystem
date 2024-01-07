@@ -32,6 +32,17 @@ public class AdditionalDetails extends JFrame implements ActionListener{
     JButton _saveAndNext, _cancel;
     String _formNumber;
 
+    
+    /**
+     * The AdditionalDetails function is used to get the additional details of a user.
+     * 
+     *
+     * @param String _formNumber Display the form number on the top of the frame
+     *
+     * @return The following:
+     *
+     * @nnoromiv https://www.linkedin.com/in/nnorom
+     */
     public AdditionalDetails(String _formNumber) {
         this._formNumber = _formNumber;
         setIconImage(_imageIcon);
@@ -151,6 +162,19 @@ public class AdditionalDetails extends JFrame implements ActionListener{
         setVisible(true);
     }
 
+    
+    /**
+     * The actionPerformed function is the function that is called when an action event occurs.
+     * An action event can be a button click, or a text field change, etc.
+     * The function checks which component triggered the event and then performs some operation based on it.
+     
+     *
+     * @param ActionEvent _actionEvent Determine which button was clicked
+     *
+     * @return Void
+     *
+     * @nnoromiv https://www.linkedin.com/in/nnorom
+     */
     @Override
     public void actionPerformed(ActionEvent _actionEvent) {
         if(_actionEvent.getSource() == _saveAndNext){
@@ -182,6 +206,17 @@ public class AdditionalDetails extends JFrame implements ActionListener{
         }
     }
 
+    
+    /**
+     * The main function of the AdditionalDetails class.
+     * 
+     *
+     * @param String[] args Pass arguments to the main method
+     *
+     * @return Nothing, so the return type is void
+     *
+     * @nnoromiv https://www.linkedin.com/in/nnorom
+     */
     public static void main(String[] args){
         new AdditionalDetails("");
     }

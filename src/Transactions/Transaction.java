@@ -19,6 +19,19 @@ public class Transaction extends JFrame implements ActionListener {
     String _cardNumber;
     String _pin;
     
+    
+    /**
+     * The Transaction function is the constructor for the Transaction class.
+     * It creates a new JFrame and adds all of the buttons to it.
+     
+     *
+     * @param String _cardNumber Pass the card number from the login class to this class
+     * @param String _pin Pass the pin number from the login class to this class
+     *
+     * @return Nothing
+     *
+     * @nnoromiv https://www.linkedin.com/in/nnorom
+     */
     public Transaction(String _cardNumber, String _pin){
         this._cardNumber = _cardNumber;
         this._pin = _pin;
@@ -118,6 +131,18 @@ public class Transaction extends JFrame implements ActionListener {
         setVisible(true);
     }
 
+     
+     /**
+      * The actionPerformed function is the function that is called when a button on the ATM GUI is pressed.
+      * It checks which button was pressed and then calls the appropriate class to handle it.
+      
+      *
+      * @param ActionEvent _actionEvent Determine which button was clicked
+      *
+      * @return Void
+      *
+      * @nnoromiv https://www.linkedin.com/in/nnorom
+      */
      @Override
     public void actionPerformed(ActionEvent _actionEvent) {
         if(_actionEvent.getSource() == _exit){
@@ -143,6 +168,17 @@ public class Transaction extends JFrame implements ActionListener {
         }
     }
 
+    
+    /**
+     * The main function of the program.
+     * 
+     *
+     * @param String args[] Pass command line arguments to the main function
+     *
+     * @return Nothing
+     *
+     * @nnoromiv https://www.linkedin.com/in/nnorom
+     */
     public static void main(String args[]) {
         new Transaction("", "");
     }

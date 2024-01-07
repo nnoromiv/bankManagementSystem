@@ -26,6 +26,18 @@ public class FastCash extends JFrame implements ActionListener {
     String _cardNumber;
     String _pin;
     
+    
+    /**
+     * The FastCash function is a constructor that creates the FastCash GUI.
+     * 
+     *
+     * @param String _cardNumber Pass the card number to this class
+     * @param String _pin Get the pin number of the user
+     *
+     * @return The amount of cash withdrawn
+     *
+     * @nnoromiv https://www.linkedin.com/in/nnorom
+     */
     public FastCash(String _cardNumber, String _pin){
         this._cardNumber = _cardNumber;
         this._pin = _pin;
@@ -125,6 +137,17 @@ public class FastCash extends JFrame implements ActionListener {
         setVisible(true);
     }
 
+     
+     /**
+      * The actionPerformed function is called when an action event occurs.
+      * 
+      *
+      * @param ActionEvent _actionEvent Determine which button was pressed
+      *
+      * @return Void, so the return statement is not valid
+      *
+      * @nnoromiv https://www.linkedin.com/in/nnorom
+      */
      @Override
     public void actionPerformed(ActionEvent _actionEvent) {
         if(_actionEvent.getSource() == _back){
@@ -164,6 +187,17 @@ public class FastCash extends JFrame implements ActionListener {
         }
     }
 
+    
+    /**
+     * The main function of the FastCash class.
+     * 
+     *
+     * @param String args[] Pass command line arguments to the program
+     *
+     * @return Void
+     *
+     * @nnoromiv https://www.linkedin.com/in/nnorom
+     */
     public static void main(String args[]) {
         new FastCash("", "");
     }

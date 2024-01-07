@@ -28,6 +28,18 @@ public class Withdrawal extends JFrame implements ActionListener {
     String _cardNumber;
     String _pin;
     
+    
+    /**
+     * The Withdrawal function is used to withdraw money from the user's account.
+     * 
+     *
+     * @param String _cardNumber Pass the card number to the withdrawal class
+     * @param String _pin Get the pin number of the user
+     *
+     * @return The amount that the user wants to withdraw
+     *
+     * @nnoromiv https://www.linkedin.com/in/nnorom
+     */
     public Withdrawal(String _cardNumber, String _pin){
         this._cardNumber = _cardNumber;
         this._pin = _pin;
@@ -79,6 +91,17 @@ public class Withdrawal extends JFrame implements ActionListener {
         setVisible(true);
     }
 
+     
+     /**
+      * The actionPerformed function is an event handler that handles the events of the buttons in this class.
+      * 
+      *
+      * @param ActionEvent _actionEvent Determine which button was clicked
+      *
+      * @return Void
+      *
+      * @nnoromiv https://www.linkedin.com/in/nnorom
+      */
      @Override
     public void actionPerformed(ActionEvent _actionEvent) {
         if(_actionEvent.getSource() == _back){
@@ -124,6 +147,17 @@ public class Withdrawal extends JFrame implements ActionListener {
         }
     }
 
+    
+    /**
+     * The main function of the Withdrawal class.
+     * 
+     *
+     * @param String args[] Get the command line arguments
+     *
+     * @return Void
+     *
+     * @nnoromiv https://www.linkedin.com/in/nnorom
+     */
     public static void main(String args[]) {
         new Withdrawal("", "");
     }

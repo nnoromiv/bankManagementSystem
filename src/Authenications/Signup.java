@@ -23,6 +23,7 @@ import Connector.Connector;
 
 public class Signup extends JFrame implements ActionListener{
 
+    // Creates the image to display in the form. This is called when the user clicks on the button
     Image _imageIcon = new ImageIcon("lib/icon.png").getImage();
     long _randomNumber;
     JTextField _fullNameTextField, _motherMaidenNameTextField, _emailAddressTextField, _addressTextField, _cityTextField, _stateTextField, _postalCodeTextField;
@@ -30,6 +31,17 @@ public class Signup extends JFrame implements ActionListener{
     JRadioButton _male, _female, _single, _married, _others;
     JButton _saveAndNext;
 
+    // This is the method that is called when the user clicks on the Signup button
+    
+    /**
+     * The Signup function is used to create a new account for the user.
+     * 
+     *
+     *
+     * @return Nothing
+     *
+     * @nnoromiv https://www.linkedin.com/in/nnorom
+     */
     public Signup() {
         setIconImage(_imageIcon);
         setTitle("Automated Bank System - Sign Up - Personal Details");
@@ -196,8 +208,21 @@ public class Signup extends JFrame implements ActionListener{
         setVisible(true);
     }
 
+    
+    /**
+     * The actionPerformed function is called when the user clicks on a button.
+     * It creates a form number from the text fields and inserts or updates the record in the database.
+     
+     *
+     * @param ActionEvent _actionEvent Determine which button was clicked
+     *
+     * @return Void, so it can't be used as a return value
+     *
+     * @nnoromiv https://www.linkedin.com/in/nnorom
+     */
     @Override
     public void actionPerformed(ActionEvent _actionEvent) {
+        // Creates a form number from the text fields. This is used to create the form
         String _formNumber = "" + _randomNumber;
         String _fullName = _fullNameTextField.getText();
         String _motherMaidenName = _motherMaidenNameTextField.getText();
@@ -226,6 +251,7 @@ public class Signup extends JFrame implements ActionListener{
             _maritalStatus = "";
         }
 
+        // Inserts or updates the record in the database. This is called when the user clicks the insert button
         try {
             if (_fullName.equals("")) {
                 JOptionPane.showMessageDialog(null, "Enter your full name");               
@@ -252,6 +278,18 @@ public class Signup extends JFrame implements ActionListener{
         }
     }
 
+    
+    
+    /**
+     * The main function of the program.
+     * 
+     *
+     * @param String[] args Pass command line arguments to the program
+     *
+     * @return Nothing, so you should not add anything to the end of it
+     *
+     * @nnoromiv https://www.linkedin.com/in/nnorom
+     */
     public static void main(String[] args){
         new Signup();
     }

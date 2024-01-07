@@ -14,6 +14,18 @@ public class MiniStatement extends JFrame {
     String _cardNumber;
     String _pin;
 
+    
+    /**
+     * The MiniStatement function is used to display the mini statement of a user.
+     * 
+     *
+     * @param String _cardNumber Get the card number of the user
+     * @param String _pin Get the pin of the user
+     *
+     * @return Nothing
+     *
+     * @nnoromiv https://www.linkedin.com/in/nnorom
+     */
     public MiniStatement(String _cardNumber, String _pin){
         this._cardNumber = _cardNumber;
         this._pin = _pin;
@@ -49,7 +61,6 @@ public class MiniStatement extends JFrame {
         JScrollPane _scrollPane = new JScrollPane(_statement);
         _scrollPane.setBounds(10, 200, 360, 400);
         _scrollPane.setBorder(null);
-        // _scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
         add(_scrollPane);
 
         Connector _connector = new Connector();
@@ -118,6 +129,17 @@ public class MiniStatement extends JFrame {
         setVisible(true);
     }
 
+    
+    /**
+     * The main function of the MiniStatement class.
+     * 
+     *
+     * @param String args[] Pass arguments to the main function
+     *
+     * @return Void
+     *
+     * @nnoromiv https://www.linkedin.com/in/nnorom
+     */
     public static void main(String args[]){
         new MiniStatement("","");
     }

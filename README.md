@@ -1,20 +1,90 @@
 # Java Bank Management System
 
+The Bank Management System is a Java application that enables users to perform various banking operations. It includes features like user authentication, account creation, and transaction management.
+
+## Table of Contents
+
+- [Java Bank Management System](#java-bank-management-system)
+  - [Table of Contents](#table-of-contents)
+  - [Features](#features)
+  - [Screenshots](#screenshots)
+  - [Getting Started](#getting-started)
+  - [Dependencies](#dependencies)
+  - [Usage](#usage)
+  - [Contributions](#contributions)
+  - [License](#license)
+
+## Features
+
+1. **User Authentication:**
+   - Secure login functionality for authorized access.
+
+2. **Account Creation:**
+   - Three-step sign-up process for personal details, additional details, and account details.
+
+3. **Transaction Management:**
+   - Withdrawal
+   - Deposit
+   - FastCash
+   - Balance Enquiry
+   - Pin Change
+   - Mini Statement
+
+## Screenshots
+
+![Login Preview](lib/images/login.png)
+
 ## Getting Started
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+1. **Clone the repository:**
 
-## Folder Structure
+    ```bash
+    git clone https://github.com/nnoromiv/bankManagementSystem.git
+    ```
 
-The workspace contains two folders by default, where:
+2. **Database Setup:**
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+    Create a MySQL database and import the provided SQL schema file.
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+3. **Dependencies:**
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+    Ensure all dependencies are installed (Java, MySQL Connector, etc.).
 
-## Dependency Management
+4. **Run the Application:**
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+    ```bash
+        javac App.java
+        java App
+    ```
+
+## Dependencies
+
+-Java
+-MySQL Connector
+
+## Usage
+
+1. Sign Up:
+
+   - Click the Sign up button.
+   - Provide dummy details to fill in personal details, additional details, and account details during the sign-up process.
+   - Copy out the Card Number and Pin that is generated.
+
+2. Login:
+
+    - Use the Card Number and Pin to log in securely.
+  
+3. Perform Transactions:
+
+    - Explore various transaction options from the menu.
+
+## Contributions
+
+Contributions are welcome! Feel free to submit issues or pull requests.
+    - Bug Fixes
+    - Feature Enhancements
+    - Documentation Improvements
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.

@@ -6,7 +6,13 @@
     ],
     "cSpell.words": [
         "Authenications",
+        "Dependacies",
+        "formpage",
         "Insuffiecient",
-        "jdbc"
-    ]
+        "jdbc",
+        "jlabel"
+    ],
+    "docwriter.progress.trackTypes": true,
+    "docwriter.progress.trackClasses": true,
+    "docwriter.style": "Javadoc"
 }

@@ -28,8 +28,16 @@ public class Login extends JFrame implements ActionListener {
     Image _imageIcon = new ImageIcon("lib/icon.png").getImage();
     ImageIcon __imageIcon = new ImageIcon(new ImageIcon("lib/icon.png").getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
 
+    /**
+    * Checks if the password is whitespace. This is used to detect passwords that contain spaces in their first and last characters.
+    * 
+    * @param password - The password to check. Must not be null.
+    * 
+    * @return true if the password is whitespace false otherwise. Note that whitespace is not considered a whitespace
+    */
     private boolean isWhitespace(char[] password) {
         for (char c : password) {
+            // Returns true if the character is a whitespace character.
             if (!Character.isWhitespace(c)) {
                 return false;
             }
@@ -38,6 +46,18 @@ public class Login extends JFrame implements ActionListener {
     }
 
     
+    
+    /**
+     * The Login function is used to check if the user has entered a valid card number and pin.
+     * If the user has entered a valid card number and pin, then they will be directed to the Transaction page.
+     * If not, an error message will appear on screen telling them that their credentials are invalid. 
+     
+     *
+     *
+     * @return A boolean value
+     *
+     * @nnoromiv https://www.linkedin.com/in/nnorom
+     */
     public Login() {
         setIconImage(_imageIcon);
         setTitle("Automated Bank System - Welcome");
@@ -113,16 +133,25 @@ public class Login extends JFrame implements ActionListener {
         setLocation(350, 200);
     }
     
+    /**
+    * This method is called when one of the buttons is pressed. The button is set to clear if the text field is empty or contains whitespace.
+    * 
+    * @param _actionEvent - The event that triggered
+    */
     @Override
     public void actionPerformed(ActionEvent _actionEvent) {
+        // Action for the actionPerformed method.
         if (_actionEvent.getSource() == _clearButton) {
+            // set the card number and pin text field
             if(!_cardNumberTextField.getText().isEmpty() || !isWhitespace(_pinTextField.getPassword())) {
                 _cardNumberTextField.setText("");
                 _pinTextField.setText("");
             }          
+        // Action for the actionPerformed method.
         } else if(_actionEvent.getSource() == _signUpButton) {
             setVisible(false);
             new Signup().setVisible(true);            
+        // ActionPerformed method for login button.
         } else if (_actionEvent.getSource() == _loginButton){
             Connector _connector = new Connector();
             String _cardNumber = _cardNumberTextField.getText();
@@ -132,6 +161,7 @@ public class Login extends JFrame implements ActionListener {
             String _query = "SELECT * FROM LOGIN WHERE _cardNumber = '"+_cardNumber+"' AND _pin = '"+_pin+"'";
             try {
                 ResultSet _result = _connector._stmt.executeQuery(_query);
+                // This method is called when the next transaction is available.
                 if(_result.next()){
                     setVisible(false);
                     new Transaction(_cardNumber,_pin).setVisible(true);
@@ -146,6 +176,11 @@ public class Login extends JFrame implements ActionListener {
         }
     }
 
+    /**
+    * Entry point for the application. This is the entry point for the application.
+    * 
+    * @param args - Command line arguments not used in this program but
+    */
     public static void main(String[] args) {
         new Login();
     }

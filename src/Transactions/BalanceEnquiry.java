@@ -23,6 +23,18 @@ public class BalanceEnquiry extends JFrame implements ActionListener {
     String _cardNumber;
     String _pin;
     
+    
+    /**
+     * The BalanceEnquiry function is used to display the balance of a user's account.
+     * 
+     *
+     * @param String _cardNumber Identify the user's account
+     * @param String _pin Get the pin from the database
+     *
+     * @return The balance of the account
+     *
+     * @nnoromiv https://www.linkedin.com/in/nnorom
+     */
     public BalanceEnquiry(String _cardNumber, String _pin){
         this._cardNumber = _cardNumber;
         this._pin = _pin;
@@ -86,7 +98,19 @@ public class BalanceEnquiry extends JFrame implements ActionListener {
         setVisible(true);
     }
 
-     @Override
+    
+    /**
+     * The actionPerformed function is called when the user clicks on a button.
+     * It will check which button was clicked and perform an action based on that.
+     
+     *
+     * @param ActionEvent _actionEvent Determine which button was pressed
+     *
+     * @return Void, so it cannot be returned
+     *
+     * @nnoromiv https://www.linkedin.com/in/nnorom
+     */
+    @Override
     public void actionPerformed(ActionEvent _actionEvent) {
         if(_actionEvent.getSource() == _back){
             setVisible(false);
@@ -94,6 +118,17 @@ public class BalanceEnquiry extends JFrame implements ActionListener {
         }
     }
 
+    
+    /**
+     * The main function of the program.
+     * 
+     *
+     * @param String args[] Pass command line arguments to the main function
+     *
+     * @return Void
+     *
+     * @nnoromiv https://www.linkedin.com/in/nnorom
+     */
     public static void main(String args[]) {
         new BalanceEnquiry("", "");
     }
