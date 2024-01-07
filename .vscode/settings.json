@@ -1,14 +1,21 @@
 {
     "java.project.sourcePaths": ["src"],
     "java.project.outputPath": "bin",
-    "java.project.referencedLibraries": [
-        "lib/**/*.jar"
-    ],
+    "java.project.referencedLibraries": {
+        "include": [
+            "lib/**.jar"
+        ],
+        "exclude": [
+            "lib/jcalendar-1.4/lib/jcalendar-1.4.jar",
+            "lib/jcalendar-1.4/lib/jgoodies-common-1.2.0.jar",
+            "lib/jcalendar-1.4/lib/jgoodies-looks-2.4.1.jar",
+            "lib/jcalendar-1.4/lib/junit-4.6.jar",
+            "lib/mysql-connector-j-8.2.0/mysql-connector-j-8.2.0.jar"
+        ]
+    },
     "cSpell.words": [
-        "Authenications",
-        "Dependacies",
         "formpage",
-        "Insuffiecient",
+        "javac",
         "jdbc",
         "jlabel"
     ],

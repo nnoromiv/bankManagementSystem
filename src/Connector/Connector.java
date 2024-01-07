@@ -23,7 +23,7 @@ public class Connector {
      */
     public Connector(){
         try {
-            // Class.forName(com.mysql.cj.jdbc.Driver);
+            Class.forName("com.mysql.cj.jdbc.Driver");
             _connection = DriverManager.getConnection("jdbc:mysql:///bank_management_system", "root", "");     
             _stmt = _connection.createStatement();       
         } catch (Exception e) {

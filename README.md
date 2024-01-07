@@ -18,20 +18,23 @@ The Bank Management System is a Java application that enables users to perform v
 
 1. **User Authentication:**
    - Secure login functionality for authorized access.
+
 ![Login Preview](lib/images/login.png)
 
-2. **Account Creation:**
+1. **Account Creation:**
    - Three-step sign-up process for personal details, additional details, and account details.
+
 ![Sign Up Preview](lib/images/SignUpCover.png)
 
-3. **Transaction Management:**
+1. **Transaction Management:**
    - Withdrawal
    - Deposit
    - FastCash
    - Balance Enquiry
    - Pin Change
    - Mini Statement
-![Transaction Preview](lib/images/TransactionCover.png)
+  
+![Transaction Preview](lib/images/TransactionsCover.png)
 
 ## Screenshots
 
@@ -50,22 +53,24 @@ The Bank Management System is a Java application that enables users to perform v
 2. **Database Setup:**
 
     Create a MySQL database and import the provided SQL schema file.
+    - All SQL Queries at [SQL File](https://github.com/nnoromiv/bankManagementSystem/blob/master/src/index.sql)
+
+    ```sql
+        CREATE DATABASE bank_management_system;
+    ```
 
 3. **Dependencies:**
 
     Ensure all dependencies are installed (Java, MySQL Connector, etc.).
+    Go to [Dependencies](#dependencies)
 
 4. **Run the Application:**
-
-    ```bash
-        javac App.java
-        java App
-    ```
 
 ## Dependencies
 
 -Java
 -MySQL Connector
+-JCalender
 
 ## Usage
 

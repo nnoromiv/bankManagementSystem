@@ -1,4 +1,4 @@
-import Authenications.Login;
+import Authentications.Login;
 
 public class App {
     /**

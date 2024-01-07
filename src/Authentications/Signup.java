@@ -1,4 +1,4 @@
-package Authenications;
+package Authentications;
 
 import java.awt.Color;
 import java.awt.Cursor;
@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
-import com.toedter.calendar.JDateChooser;
+import com.toedter.calendar.*;
 
 import Connector.Connector;
 

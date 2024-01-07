@@ -1,4 +1,4 @@
-package Authenications;
+package Authentications;
 
 import java.awt.Color;
 import java.awt.Cursor;
