@@ -22,7 +22,11 @@ The Bank Management System is a Java application that enables users to perform v
 
 2. **Account Creation:**
    - Three-step sign-up process for personal details, additional details, and account details.
-![Personal Preview](lib/images/login.png); ![Additional Preview](lib/images/login.png); ![Account Preview](lib/images/login.png);
+<!-- Personal Preview -->
+<img src="lib/images/login.png" alt="Personal Preview" style="display:inline-block; margin-right: 20px;">
+
+<!-- Additional Preview -->
+<img src="lib/images/login.png" alt="Additional Preview" style="display:inline-block; margin-right: 20px;">
 
 3. **Transaction Management:**
    - Withdrawal
