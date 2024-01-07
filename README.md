@@ -31,10 +31,13 @@ The Bank Management System is a Java application that enables users to perform v
    - Balance Enquiry
    - Pin Change
    - Mini Statement
+![Transaction Preview](lib/images/TransactionCover.png)
 
 ## Screenshots
 
-![Transaction Preview](lib/images/transaction.png)
+![Transaction Preview](lib/images/MoreTransactionCover.png)
+
+**[More Images](https://github.com/nnoromiv/bankManagementSystem/tree/master/lib/images)**
 
 ## Getting Started
 
