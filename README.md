@@ -18,14 +18,15 @@ The Bank Management System is a Java application that enables users to perform v
 
 1. **User Authentication:**
    - Secure login functionality for authorized access.
-![Login Preview](lib/images/login.png){ width=50% }
+![Login Preview](lib/images/login.png)
 
-2. **Account Creation:**
+1. **Account Creation:**
    - Three-step sign-up process for personal details, additional details, and account details.
-    ![Login Preview](lib/images/login.png){ width=50%, margin-right=20px }
-    ![Login Preview](lib/images/login.png)
+    | ![Login Preview](lib/images/login.png) | ![Additional Preview](lib/images/additional.png) | ![Account Preview](lib/images/account.png) |
+    | --- | --- | --- |
+    | *Login* | *Additional* | *Account* |
 
-3. **Transaction Management:**
+2. **Transaction Management:**
    - Withdrawal
    - Deposit
    - FastCash
